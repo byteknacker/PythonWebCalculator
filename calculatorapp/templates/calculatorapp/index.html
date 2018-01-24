@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Calculator</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'calculatorapp/css/style.css' %}">
+</head>
+
+<body>
+    <div class="cal-wrapper-outer">
+        <div class="cal-wrapper">
+            <div class="display-screen">{{ display }}</div>
+            <form action="#" method="post">
+                <div class="number-pad">
+                    <div class="row">
+                        <button type="submit" class="num-btn" name="digit" value="7">7</button>
+                        <button type="submit" class="num-btn" name="digit" value="8">8</button>
+                        <button type="submit" class="num-btn" name="digit" value="9">9</button>
+                        <button type="submit" class="op-btn" name="op" value="+">&plus;</button>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="num-btn" name="digit" value="4">4</button>
+                        <button type="submit" class="num-btn" name="digit" value="5">5</button>
+                        <button type="submit" class="num-btn" name="digit" value="6">6</button>
+                        <button type="submit" class="op-btn" name="op" value="-">&minus;</button>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="num-btn" name="digit" value="1">1</button>
+                        <button type="submit" class="num-btn" name="digit" value="2">2</button>
+                        <button type="submit" class="num-btn" name="digit" value="3">3</button>
+                        <button type="submit" class="op-btn" name="op" value="*">&times;</button>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="num-btn" name="digit" value="0">0</button>
+                        <button type="submit" class="op-btn" name="op" value="=">&equals;</button>
+                        <button type="submit" class="op-btn" name="op" value="/">&divide;</button>
+                    </div>
+                </div>
+                <input type="hidden" name="operand_stack" value="{{ operand_stack }}">
+                <input type="hidden" name="op_stack" value="{{ op_stack }}">
+                <!-- Django's way of providing Cross Site Request Forgery protection -->
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

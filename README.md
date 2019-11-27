@@ -34,7 +34,7 @@ Make sure you have the following dependencies installed on your local environmen
 
 2. Change directory to the project directory
 
-cd PythonWebCalculator
+`cd PythonWebCalculator`
 
 3. Run docker-compose
 
